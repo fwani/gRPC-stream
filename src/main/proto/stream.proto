@@ -1,0 +1,24 @@
+// proto3 버전 사용
+syntax = "proto3";
+
+// package 세팅
+package grpc;
+
+// java option 세팅
+option java_package = "com.fwani.grpc";
+option java_multiple_files = true;
+option java_outer_classname = "Sample";
+
+option optimize_for = SPEED;
+
+service HelloService {
+  rpc HelloServerStream (RequestMessage) returns (stream ResponseMessage);
+}
+
+message RequestMessage {
+  string data = 1;
+}
+
+message ResponseMessage {
+  string data = 1;
+}
